@@ -13,9 +13,7 @@ public class ContaBancaria {
     private boolean ativa;
     private List<Transacao> extrato;
 
-
     // Construtor
-
 
     private ContaBancaria(
             Integer numeroConta,
@@ -75,7 +73,6 @@ public class ContaBancaria {
         extrato.add(new Transacao(LocalDateTime.now(), "Depósito de " + valor + " realizado"));
     }
 
-
     // Método para transferir um valor para outra conta
     void transferir(double valor, ContaBancaria contaDestino) {
         if (valor > saldoConta) {
@@ -113,7 +110,7 @@ public class ContaBancaria {
     void cancelarConta(String justificativa) {
         if (ativa) {
             ativa = false;
-            System.out.println("Conta cancelada com sucesso.");
+            System.out.println("\n" + "Conta: " + cliente.nome + "\nConta cancelada com sucesso.");
             System.out.println("Justificativa: " + justificativa);
         } else {
             System.out.println("A conta já está cancelada.");
@@ -121,7 +118,6 @@ public class ContaBancaria {
     }
 
     // Getters e Setters
-
 
     public Cliente getCliente() {
         return cliente;
