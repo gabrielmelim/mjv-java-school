@@ -80,12 +80,15 @@ public class ContaBancaria {
     void transferir(double valor, ContaBancaria contaDestino) {
         if (valor > saldoConta) {
             System.out.println("Saldo insuficiente para transferência.");
+        } else if (contaDestino == null) {
+            System.out.println("Conta de destino inválida.");
         } else {
             saldoConta -= valor;
-            System.out.println("conta: " + cliente.nome + "\n" + "Transferência de " + valor + " realizada com sucesso.");
+            System.out.println("Conta: " + cliente.nome + "\n" + "Transferência de " + valor + " realizada com sucesso.");
             System.out.println("Saldo atual: " + saldoConta + "\n");
+            System.out.println("Conta a receber a transferência: " + contaDestino.cliente.nome);
             contaDestino.depositar(valor);
-            extrato.add(new Transacao(LocalDateTime.now(), "Transferência de " + valor + " realizada para conta " + contaDestino.cliente.nome));
+            extrato.add(new Transacao(LocalDateTime.now(), "Transferência de " + valor + " realizada para conta de " + contaDestino.cliente.nome));
         }
     }
 
