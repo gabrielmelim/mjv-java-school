@@ -17,7 +17,7 @@ public class ContaBancaria {
     // Construtor
 
 
-    public ContaBancaria(
+    private ContaBancaria(
             Integer numeroConta,
             Integer numeroAgencia,
             Cliente cliente,
@@ -30,6 +30,23 @@ public class ContaBancaria {
         this.ativa = ativa;
         extrato = new ArrayList<>();
         this.cliente = cliente;
+    }
+
+    // Método para cadastrar uma nova conta bancaria
+    public static ContaBancaria criarContaBancaria(
+            Integer numeroConta,
+            Integer numeroAgencia,
+            Cliente cliente,
+            Double saldoConta,
+            boolean ativa
+    ) {
+        return new ContaBancaria(
+                numeroConta,
+                numeroAgencia,
+                cliente,
+                saldoConta,
+                ativa
+        );
     }
 
     // Método para consultar o saldo atual
@@ -63,12 +80,15 @@ public class ContaBancaria {
     void transferir(double valor, ContaBancaria contaDestino) {
         if (valor > saldoConta) {
             System.out.println("Saldo insuficiente para transferência.");
+        } else if (contaDestino == null) {
+            System.out.println("Conta de destino inválida.");
         } else {
             saldoConta -= valor;
-            System.out.println("conta: " + cliente.nome + "\n" + "Transferência de " + valor + " realizada com sucesso.");
+            System.out.println("Conta: " + cliente.nome + "\n" + "Transferência de " + valor + " realizada com sucesso.");
             System.out.println("Saldo atual: " + saldoConta + "\n");
+            System.out.println("Conta a receber a transferência: " + contaDestino.cliente.nome);
             contaDestino.depositar(valor);
-            extrato.add(new Transacao(LocalDateTime.now(), "Transferência de " + valor + " realizada para conta " + contaDestino.cliente.nome));
+            extrato.add(new Transacao(LocalDateTime.now(), "Transferência de " + valor + " realizada para conta de " + contaDestino.cliente.nome));
         }
     }
 
@@ -100,4 +120,26 @@ public class ContaBancaria {
         }
     }
 
+    // Getters e Setters
+
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Integer getNumeroConta() {
+        return numeroConta;
+    }
+
+    public Integer getNumeroAgencia() {
+        return numeroAgencia;
+    }
+
+    public Double getSaldoConta() {
+        return saldoConta;
+    }
+
+    public boolean isAtiva() {
+        return ativa;
+    }
 }
