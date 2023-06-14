@@ -5,20 +5,24 @@ public class Cliente {
     String nome;
     LocalDate dataNascimento;
 
-    private Cliente(String nome, LocalDate dataNascimento) {
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
+     Cliente() {
     }
 
-    public static Cliente criarCliente(String nome, LocalDate dataNascimento) {
-        return new Cliente(nome, dataNascimento);
-    }
+    // getter e setter
 
     public String getNome() {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public LocalDate getDataNascimento() {
         return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 }

@@ -14,43 +14,12 @@ public class ContaBancaria {
     private List<Transacao> extrato;
 
     // Construtor
-
-    private ContaBancaria(
-            Integer numeroConta,
-            Integer numeroAgencia,
-            Cliente cliente,
-            Double saldoConta,
-            boolean ativa
-    ) {
-        this.numeroConta = numeroConta;
-        this.numeroAgencia = numeroAgencia;
-        this.saldoConta = saldoConta;
-        this.ativa = ativa;
-        extrato = new ArrayList<>();
-        this.cliente = cliente;
-    }
-
-    // Método para cadastrar uma nova conta bancaria
-    public static ContaBancaria criarContaBancaria(
-            Integer numeroConta,
-            Integer numeroAgencia,
-            Cliente cliente,
-            Double saldoConta,
-            boolean ativa
-    ) {
-        return new ContaBancaria(
-                numeroConta,
-                numeroAgencia,
-                cliente,
-                saldoConta,
-                ativa
-        );
-    }
+    ContaBancaria() {extrato = new ArrayList<>();}
 
     // Método para consultar o saldo atual
     void consultarSaldo() {
 
-        System.out.println("Conta: " + cliente.nome + " \nSaldo atual: " + saldoConta + "\n");
+        System.out.println("Conta: " + cliente.getNome() + " \nSaldo atual: " + saldoConta + "\n");
     }
 
     // Método para sacar um valor da conta
@@ -59,7 +28,7 @@ public class ContaBancaria {
             System.out.println("Saldo insuficiente.");
         } else {
             saldoConta -= valor;
-            System.out.println("Conta: " + cliente.nome + "\n" + "Saque de " + valor + " realizado com sucesso.");
+            System.out.println("Conta: " + cliente.getNome() + "\n" + "Saque de " + valor + " realizado com sucesso.");
             System.out.println("Saldo atual: " + saldoConta + "\n");
             extrato.add(new Transacao(LocalDateTime.now(), "Saque de " + valor + " realizado"));
         }
@@ -68,7 +37,7 @@ public class ContaBancaria {
     // Método para depositar um valor na conta
     void depositar(double valor) {
         saldoConta += valor;
-        System.out.println("Conta: " + cliente.nome + "\n" + "Depósito de " + valor + " realizado com sucesso.");
+        System.out.println("Conta: " + cliente.getNome() + "\n" + "Depósito de " + valor + " realizado com sucesso.");
         System.out.println("Saldo atual: " + saldoConta + "\n");
         extrato.add(new Transacao(LocalDateTime.now(), "Depósito de " + valor + " realizado"));
     }
@@ -81,9 +50,9 @@ public class ContaBancaria {
             System.out.println("Conta de destino inválida.");
         } else {
             saldoConta -= valor;
-            System.out.println("Conta: " + cliente.nome + "\n" + "Transferência de " + valor + " realizada com sucesso.");
+            System.out.println("Conta: " + cliente.getNome() + "\n" + "Transferência de " + valor + " realizada com sucesso.");
             System.out.println("Saldo atual: " + saldoConta + "\n");
-            System.out.println("Conta a receber a transferência: " + contaDestino.cliente.nome);
+            System.out.println("Conta a receber transferência: " + contaDestino.getCliente().getNome());
             contaDestino.depositar(valor);
             extrato.add(new Transacao(LocalDateTime.now(), "Transferência de " + valor + " realizada para conta de " + contaDestino.cliente.nome));
         }
@@ -91,7 +60,7 @@ public class ContaBancaria {
 
     // Método para consultar o extrato entre duas datas
     List<String> consultarExtratoEntreDatas(LocalDateTime dataInicio, LocalDateTime dataFim) {
-        System.out.println("conta: " + cliente.nome + "\n" + "Extrato entre " + dataInicio + " e " + dataFim + ":");
+        System.out.println("conta: " + cliente.getNome() + "\n" + "Extrato entre " + dataInicio + " e " + dataFim + ":");
 
         List<String> consultarTransacao = new ArrayList<>();
 
@@ -110,7 +79,7 @@ public class ContaBancaria {
     void cancelarConta(String justificativa) {
         if (ativa) {
             ativa = false;
-            System.out.println("\n" + "Conta: " + cliente.nome + "\nConta cancelada com sucesso.");
+            System.out.println("\n" + "Conta: " + cliente.getNome() + "\nConta cancelada com sucesso.");
             System.out.println("Justificativa: " + justificativa);
         } else {
             System.out.println("A conta já está cancelada.");
@@ -123,19 +92,39 @@ public class ContaBancaria {
         return cliente;
     }
 
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     public Integer getNumeroConta() {
         return numeroConta;
+    }
+
+    public void setNumeroConta(Integer numeroConta) {
+        this.numeroConta = numeroConta;
     }
 
     public Integer getNumeroAgencia() {
         return numeroAgencia;
     }
 
+    public void setNumeroAgencia(Integer numeroAgencia) {
+        this.numeroAgencia = numeroAgencia;
+    }
+
     public Double getSaldoConta() {
         return saldoConta;
     }
 
+    public void setSaldoConta(Double saldoConta) {
+        this.saldoConta = saldoConta;
+    }
+
     public boolean isAtiva() {
         return ativa;
+    }
+
+    public void setAtiva(boolean ativa) {
+        this.ativa = ativa;
     }
 }
