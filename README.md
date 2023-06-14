@@ -37,4 +37,3 @@ O projeto consiste em simular as ações de uma conta bancaria</br>
 <p align="left">
   <img src="https://raw.githubusercontent.com/gabrielmelim/imgs/main/mvj-school/ex2.png" alt="Resultado" alt="desafio" width="100%">
 </p>
-
