@@ -25,6 +25,7 @@ O projeto consiste em simular as ações de uma conta bancaria</br>
 -🔨 `Funcionalidade 5`: sacar;</br>
 -🔨 `Funcionalidade 6`: transferir;</br>
 -🔨 `Funcionalidade 7`: consutlar extrato entre datas;</br>
+-🔨 `Funcionalidade 8`: cancelar conta com uma justificativa;</br>
 
 <h3> Simualção via ide InteliJ </h3>
 ⭐ Como vocês verão abaixo, temos a classe terminal que será responsável por executar nosso algoritmo e testar as funcionalidades.</br></br>
