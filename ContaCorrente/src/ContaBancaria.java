@@ -17,7 +17,7 @@ public class ContaBancaria {
     // Construtor
 
 
-    public ContaBancaria(
+    private ContaBancaria(
             Integer numeroConta,
             Integer numeroAgencia,
             Cliente cliente,
@@ -30,6 +30,23 @@ public class ContaBancaria {
         this.ativa = ativa;
         extrato = new ArrayList<>();
         this.cliente = cliente;
+    }
+
+    // Método para cadastrar uma nova conta bancaria
+    public static ContaBancaria criarContaBancaria(
+            Integer numeroConta,
+            Integer numeroAgencia,
+            Cliente cliente,
+            Double saldoConta,
+            boolean ativa
+    ) {
+        return new ContaBancaria(
+                numeroConta,
+                numeroAgencia,
+                cliente,
+                saldoConta,
+                ativa
+        );
     }
 
     // Método para consultar o saldo atual
@@ -100,4 +117,26 @@ public class ContaBancaria {
         }
     }
 
+    // Getters e Setters
+
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Integer getNumeroConta() {
+        return numeroConta;
+    }
+
+    public Integer getNumeroAgencia() {
+        return numeroAgencia;
+    }
+
+    public Double getSaldoConta() {
+        return saldoConta;
+    }
+
+    public boolean isAtiva() {
+        return ativa;
+    }
 }
