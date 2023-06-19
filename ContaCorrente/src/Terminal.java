@@ -1,6 +1,5 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
 public class Terminal {
     public static void main(String[] args) {
 
@@ -12,7 +11,6 @@ public class Terminal {
         Cliente c2 = new Cliente();
         c2.setNome("Luciana");
         c2.setDataNascimento(LocalDate.of(2000,8,25));
-
 
         //Cadastrando Contas:
         ContaBancaria conta1 = new ContaBancaria();
