@@ -47,6 +47,5 @@ public class Terminal {
 
         // cancelar a conta com uma justificativa
         conta1.cancelarConta("Juros alto");
-
     }
 }
