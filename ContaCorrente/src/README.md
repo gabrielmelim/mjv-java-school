@@ -3,7 +3,7 @@
 </div>
 
 <h1 align="center">Mjv School - Java</h1>
-<h2 align="center">Algoritimo - ContaBancaria</h2>
+<h2 align="center">Algoritimo - ContaCorrente</h2>
 
 <h3 align="left">Desafio:</h2>
 
