@@ -7,7 +7,7 @@
 
 <h3 align="left">Algoritimos:</h2>
 
-📁[ContaCorrente](https://github.com/gabrielmelim/mjv-java-school/blob/main/README.md)
+📁[ContaCorrente](https://github.com/gabrielmelim/mjv-java-school/tree/gabriel-melim/ContaCorrente/src)
 <br>
 📁[Candidatos](https://github.com/gabrielmelim/mjv-java-school/tree/gabriel-melim/Candidatos)
 
