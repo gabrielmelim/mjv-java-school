@@ -21,7 +21,7 @@ O projeto consiste em simular as ações de uma lista de candidatos</br>
 -🔨 `Funcionalidade 1`: cadastrar um cliente;</br>
 -🔨 `Funcionalidade 2`: gerar dois arquivos csv, um posicional e um delimitado;</br>
 
-<h3> Arquivos gerador através do algoritimo ( disponivel no repositório para visualização ) </h3>
+<h3> Arquivos gerados através do algoritimo ( disponivel no repositório para visualização ) </h3>
 ⭐ Como vocês verão abaixo, nós temos os exemplos dos arquivos csv gerado dado o desafio.</br></br>
 
 <p align="left">
